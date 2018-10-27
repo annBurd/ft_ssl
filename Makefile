@@ -20,3 +20,7 @@ NAME = ft_ssl
 
 # You must submit a Makefile. The Makefile must contain the usual rules and compile
 # the project as necessary.
+
+
+
+	# @$(RM) *.h.gch
