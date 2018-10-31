@@ -18,6 +18,13 @@
 ** -q, quiet mode
 ** -r, reverse the format of the output.
 ** -s, print the sum of the given string
+**
+** open
+** close
+** read
+** write
+** malloc
+** free
 */
 
 int		main(int argc, char **argv)
