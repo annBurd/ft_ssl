@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ssl.h                                           :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/27 19:28:09 by aburdeni          #+#    #+#             */
-/*   Updated: 2018/10/27 19:28:12 by aburdeni         ###   ########.fr       */
+/*   Created: 2018/02/15 18:14:21 by aburdeni          #+#    #+#             */
+/*   Updated: 2018/02/15 18:14:25 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SSH_H
-# define FT_PRINTF_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
 # include "libft.h"
 
-int		main(int argc, char **argv);
+# define BUFF_SIZE 100
 
-void	ft_md5();
-void	ft_sha256();
+typedef struct	s_fd
+{
+	int			fd;
+	char		*s;
+	struct s_fd	*next;
+}				t_fd;
+
+int				get_next_line(const int fd, char **line);
 
 #endif
