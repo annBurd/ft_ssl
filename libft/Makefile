@@ -108,5 +108,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re libft.a
-
-.NOTPARALLEL: all clean fclean re libft.a
