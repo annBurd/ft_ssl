@@ -88,12 +88,13 @@ SRC = ft_atoi.c \
 	ft_strtrim.c \
 	ft_swap.c \
 	ft_tolower.c \
-	ft_toupper.c
+	ft_toupper.c \
+	get_next_line.c
  
 OBJ = $(SRC:.c=.o)
 
 $(NAME):
-	@$(CC) $(CFLAGS) -c ../inc/$(NAME:.a=.h) $(SRC)
+	@$(CC) $(CFLAGS) -c ../inc/$(NAME:.a=.h) ../inc/get_next_line.h $(SRC)
 	@ar rc $(NAME) $(OBJ)
 
 all: $(NAME)
