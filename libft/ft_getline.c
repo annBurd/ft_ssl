@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   ft_getline.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -47,7 +47,7 @@ static int	read_till_new_line(const int fd, char **buf)
 	return (bytes);
 }
 
-int			get_next_line(const int fd, char **line)
+int			ft_getline(const int fd, char **line)
 {
 	static t_fd	*head;
 	char		*buf;

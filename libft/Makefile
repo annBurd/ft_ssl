@@ -57,6 +57,7 @@ SRC = ft_atoi.c \
 	ft_putstr_fd.c \
 	ft_putstr.c \
 	ft_range.c \
+	ft_shift.c \
 	ft_strcat.c \
 	ft_strchr.c \
 	ft_strclr.c \
@@ -81,7 +82,6 @@ SRC = ft_atoi.c \
 	ft_strnew.c \
 	ft_strnstr.c \
 	ft_strrchr.c \
-	ft_strshift.c \
 	ft_strsplit.c \
 	ft_strstr.c \
 	ft_strsub.c \
@@ -89,12 +89,12 @@ SRC = ft_atoi.c \
 	ft_swap.c \
 	ft_tolower.c \
 	ft_toupper.c \
-	get_next_line.c
+	ft_getline.c
  
 OBJ = $(SRC:.c=.o)
 
 $(NAME):
-	@$(CC) $(CFLAGS) -c ../inc/$(NAME:.a=.h) ../inc/get_next_line.h $(SRC)
+	@$(CC) $(CFLAGS) -c ../inc/$(NAME:.a=.h) ../inc/ft_getline.h $(SRC)
 	@ar rc $(NAME) $(OBJ)
 
 all: $(NAME)
