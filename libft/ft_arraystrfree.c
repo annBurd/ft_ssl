@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl.c                                       :+:      :+:    :+:   */
+/*   ft_arrayfree.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/01 16:42:09 by aburdeni          #+#    #+#             */
-/*   Updated: 2017/11/01 16:42:14 by aburdeni         ###   ########.fr       */
+/*   Created: 2018/11/19 17:59:47 by aburdeni          #+#    #+#             */
+/*   Updated: 2018/11/19 17:59:47 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-void	ft_putendl(char const *s)
+void		ft_arraystrfree(char **array)
 {
-	if (!s)
-		return ;
-	write(1, s, ft_strlen(s));
-	write(1, "\n", 1);
+	size_t	i;
+
+	i = 0;
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
+	array = NULL;
 }

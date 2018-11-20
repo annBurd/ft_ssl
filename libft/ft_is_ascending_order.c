@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl.c                                       :+:      :+:    :+:   */
+/*   ft_is_ascending_ordet.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/01 16:42:09 by aburdeni          #+#    #+#             */
-/*   Updated: 2017/11/01 16:42:14 by aburdeni         ###   ########.fr       */
+/*   Created: 2018/11/16 21:26:08 by aburdeni          #+#    #+#             */
+/*   Updated: 2018/11/16 21:26:08 by aburdeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/libft.h"
-
-void	ft_putendl(char const *s)
+int	ft_is_ascending_order(int *tab, int size)
 {
-	if (!s)
-		return ;
-	write(1, s, ft_strlen(s));
-	write(1, "\n", 1);
+	int i;
+
+	i = 0;
+	while (++i < size)
+		if (tab[i - 1] > tab[i])
+			return (0);
+	return (1);
 }

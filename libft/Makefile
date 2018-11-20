@@ -6,19 +6,33 @@
 #    By: aburdeni <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/27 19:02:29 by aburdeni          #+#    #+#              #
-#    Updated: 2017/12/25 19:30:08 by aburdeni         ###   ########.fr        #
+#    Updated: 2018/11/19 18:03:26 by aburdeni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+NAME = libft
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 
-SRC = ft_atoi.c \
+PRF_DIR = ./ft_printf/
+PRF_SRC = ft_printf.c \
+	handle_cs.c \
+	handle_id.c \
+	handle_oubxp.c \
+	pr_color.c \
+	pr_define_flags.c \
+	pr_join.c \
+	pr_utoa.c
+
+SRC = ft_arraystrfree.c \
+    ft_atoi.c \
 	ft_atoi_base.c \
 	ft_bzero.c \
+	ft_getline.c \
+	ft_is_descending_order.c \
+	ft_is_ascending_order.c \
 	ft_isalnum.c \
 	ft_isalpha.c \
 	ft_isascii.c \
@@ -89,22 +103,46 @@ SRC = ft_atoi.c \
 	ft_swap.c \
 	ft_tolower.c \
 	ft_toupper.c \
-	ft_getline.c
+	$(addprefix $(PRF_DIR), $(PRF_SRC))
  
 OBJ = $(SRC:.c=.o)
 
-$(NAME):
-	@$(CC) $(CFLAGS) -c ../inc/$(NAME:.a=.h) ../inc/ft_getline.h $(SRC)
-	@ar rc $(NAME) $(OBJ)
+RESET = \033[0m
+PURPLE = \033[2;35m
+DIMCYAN = \033[2;36m
 
 all: $(NAME)
+
+$(NAME): $(OBJ)
+	@ar rc $(NAME).a $(OBJ)
+	@echo "$(RESET)got $(DIMCYAN)$(NAME).a$(RESET)"
+
+%.o: %.c
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@$(RM) $(OBJ)
 	
 fclean: clean
-	@$(RM) $(NAME)
+	@$(RM) $(NAME).a
+	@echo "$(DIMCYAN)$(NAME)/$(RESET) was fcleaned"
 
 re: fclean all
 
 .PHONY: all clean fclean re libft.a
+
+
+# w/ spaceships
+
+# all:
+# 	@echo "release alien spaceships from $(DIMCYAN)$(NAME)/$(PURPLE)"
+# 	@make $(NAME)
+
+# $(NAME): $(OBJ)
+# 	@echo "$(RESET)"
+# 	@ar rc $(NAME).a $(OBJ)
+# 	@echo "got $(DIMCYAN)$(NAME).a$(RESET)"
+
+# %.o: %.c
+# 	@$(CC) $(CFLAGS) -c $< -o $@
+# 	@echo -n '  <@> '
